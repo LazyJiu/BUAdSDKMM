@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'A short description of BUAdSDKMM.'
 
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,13 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'BUAdSDKMM/Classes/**/*'
-  
+  s.resources = 'BUAdSDKMM/BUAdSDK.bundle'
+  s.vendored_framework = 'BUAdSDKMM/BUAdSDK.framework'
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
-
+  s.libraries = "z", "c++", "xml2","resolv"
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'CoreMotion', 'AVFoundation','WebKit','SystemConfiguration','AdSupport','CoreLocation','CoreTelephony','StoreKit','CoreServices','CoreMedia','MediaPlayer'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

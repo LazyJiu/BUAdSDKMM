@@ -60,12 +60,12 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74BE891625A8DA9D602DBA03 /* Pods-BUAdSDKMM_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUAdSDKMM_Example.debug.xcconfig"; path = "Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		76592D3B0732F4AC009A5EEA /* BUAdSDKMM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = BUAdSDKMM.podspec; path = ../BUAdSDKMM.podspec; sourceTree = "<group>"; };
+		76592D3B0732F4AC009A5EEA /* BUAdSDKMM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BUAdSDKMM.podspec; path = ../BUAdSDKMM.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		919362C8141C969013A735D3 /* Pods-BUAdSDKMM_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BUAdSDKMM_Example.release.xcconfig"; path = "Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D2426208062EB60AC4EFF8E5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D2426208062EB60AC4EFF8E5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E0228FB1CCC72DD3E9C337CA /* Pods_BUAdSDKMM_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BUAdSDKMM_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF4609C03023FAF2767D5922 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EF4609C03023FAF2767D5922 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F724EA60F20AF1BFF45C9EB9 /* Pods_BUAdSDKMM_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BUAdSDKMM_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,6 @@
 				49D882F271A32D890C62F1D7 /* Pods-BUAdSDKMM_Tests.debug.xcconfig */,
 				1CCB37022403F38FF8FDC97B /* Pods-BUAdSDKMM_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +207,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				03DEC439B8062D63AF94DF3B /* [CP] Embed Pods Frameworks */,
+				0202540CE7ABDBB9B14F45F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,22 +294,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03DEC439B8062D63AF94DF3B /* [CP] Embed Pods Frameworks */ = {
+		0202540CE7ABDBB9B14F45F6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BUAdSDKMM/BUAdSDKMM.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example-resources.sh",
+				"${PODS_ROOT}/../../BUAdSDKMM/BUAdSDK.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BUAdSDKMM.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BUAdSDKMM_Example/Pods-BUAdSDKMM_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		56BDCA538E22EC7F11F059B8 /* [CP] Check Pods Manifest.lock */ = {
