@@ -54,3 +54,9 @@
 
 /// playable tool
 #import <BUAdSDK/BUAdSDKPlayableToolManager.h>
+
+// smartlook
+#import <BUAdSDK/BUAdSmartlookManager.h>
+
+/// test tools
+#import <BUAdSDK/BUAdSDKTestToolManager.h>

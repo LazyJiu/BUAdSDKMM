@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
-  s.version          = '1.0.9'
-  s.summary          = 'A short description of BUAdSDKMM.'
+  s.version          = '1.1.0'
+  s.summary          = '3.1.0.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.resources = 'BUAdSDKMM/BUAdSDK.bundle'
-  s.vendored_framework = 'BUAdSDKMM/BUAdSDK.framework'
+  s.vendored_frameworks = ['BUAdSDKMM/BUAdSDK.framework', 'BUAdSDKMM/BUFoundation.framework']
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }

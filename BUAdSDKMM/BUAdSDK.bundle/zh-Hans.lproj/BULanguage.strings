@@ -14,6 +14,7 @@
 "Evaluation" = "评价";
 "Score" = "%@个评分";
 "Select" = "选择";
+"Wan" = "万";
 "Back" = "返回";
 "Replay" = "点击重播";
 "Continue" = "继续播放";
@@ -32,4 +33,6 @@
 "CanbeTurnedOffAfter" = "%ds后可关闭";
 "Get" = "下载";
 "View" = "查看";
+"ContinuePlaying" = "继续试玩";
+"GetRewardAfterPlaying" = "试玩后才可领取奖励";
 // Icon

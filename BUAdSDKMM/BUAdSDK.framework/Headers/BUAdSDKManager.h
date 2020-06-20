@@ -6,7 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "BUAdSDKDefines.h"
+
+typedef void (^BUConfirmGDPR)(BOOL isAgreed);
 
 @interface BUAdSDKManager : NSObject
 
@@ -42,11 +45,27 @@
 /// Solve the problem when your WKWebview post message empty,default is BUOfflineTypeWebview
 + (void)setOfflineType:(BUOfflineType)type;
 
+/// Custom set the GDPR of the user,GDPR is the short of General Data Protection Regulation,the interface only works in The European.
+/// @params GDPR 0 close privacy protection, 1 open privacy protection
++ (void)setGDPR:(NSInteger)GDPR;
+
+/// Custom set the AB vid of the user. Array element type is NSNumber
++ (void)setABVidArray:(NSArray<NSNumber *> *)abvids;
+
+/// Custom set the tob ab sdk version of the user.
++ (void)setABSDKVersion:(NSString *)abSDKVersion;
+
+/// Open GDPR Privacy for the user to choose before setAppID.
++ (void)openGDPRPrivacyFromRootViewController:(UIViewController *)rootViewController confirm:(BUConfirmGDPR)confirm;
+
 /// get appID
 + (NSString *)appID;
 
 /// get isPaidApp
 + (BOOL)isPaidApp;
+
+/// get GDPR
++ (NSInteger)GDPR;
 
 @end
 
