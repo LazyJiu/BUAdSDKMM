@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
   s.version          = '1.1.0'
-  s.summary          = '3.1.0.'
+  s.summary          = '3.0.0.2'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/LazyJiu/BUAdSDKMM.git', :tag => s.version.to_s}
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.resources = 'BUAdSDKMM/BUAdSDK.bundle'
   s.vendored_frameworks = ['BUAdSDKMM/BUAdSDK.framework', 'BUAdSDKMM/BUFoundation.framework']
@@ -37,6 +37,6 @@ TODO: Add long description of the pod here.
   # }
   s.libraries = "z", "c++", "xml2","resolv", 'sqlite3'
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit', 'CoreMotion', 'AVFoundation','WebKit','SystemConfiguration','AdSupport','CoreLocation','CoreTelephony','StoreKit','CoreServices','CoreMedia','MediaPlayer','Accelerate'
+  s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
