@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
-  s.version          = '1.1.0'
-  s.summary          = '3.0.0.2'
+  s.version          = '1.2.0'
+  s.summary          = '3.2.0.0'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -35,8 +35,8 @@ TODO: Add long description of the pod here.
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
-  s.libraries = "z", "c++", "xml2","resolv", 'sqlite3'
+  s.libraries = "z", "c++", "xml2","resolv", 'sqlite3', 'bz2'
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate'
+  s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','ImageIO'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

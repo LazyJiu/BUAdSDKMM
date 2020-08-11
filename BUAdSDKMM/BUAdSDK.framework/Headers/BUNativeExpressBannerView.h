@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BUMaterialMeta.h"
+#import "BUMopubAdMarkUpDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -65,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface BUNativeExpressBannerView : UIView
+@interface BUNativeExpressBannerView : UIView <BUMopubAdMarkUpDelegate>
 
 @property (nonatomic, weak, nullable) id<BUNativeExpressBannerViewDelegate> delegate;
 
@@ -95,15 +96,15 @@ prime_rit：（针对聚合广告位）广告物理位置对应的固定穿山�
 */
 
 - (instancetype)initWithSlotID:(NSString *)slotID
-                       adloadSeq:(NSInteger)adloadSeq
+                     adloadSeq:(NSInteger)adloadSeq
                       primeRit:(NSString *)primeRit
             rootViewController:(UIViewController *)rootViewController
-            adSize:(CGSize)adsize
+                        adSize:(CGSize)adsize
              IsSupportDeepLink:(BOOL)isSupportDeepLink;
 
 
 - (instancetype)initWithSlotID:(NSString *)slotID
-                       adloadSeq:(NSString *)adloadSeq
+                     adloadSeq:(NSInteger)adloadSeq
                       primeRit:(NSString *)primeRit
             rootViewController:(UIViewController *)rootViewController
                         adSize:(CGSize)adsize
