@@ -15,44 +15,44 @@
 #import "BU_SDDiskCache.h"
 
 /// Image Cache Options
-typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
+typedef NS_OPTIONS(NSUInteger, BU_SDImageCacheOptions) {
     /**
      * By default, we do not query image data when the image is already cached in memory. This mask can force to query image data at the same time. However, this query is asynchronously unless you specify `SDImageCacheQueryMemoryDataSync`
      */
-    SDImageCacheQueryMemoryData = 1 << 0,
+    BU_SDImageCacheQueryMemoryData = 1 << 0,
     /**
      * By default, when you only specify `SDImageCacheQueryMemoryData`, we query the memory image data asynchronously. Combined this mask as well to query the memory image data synchronously.
      */
-    SDImageCacheQueryMemoryDataSync = 1 << 1,
+    BU_SDImageCacheQueryMemoryDataSync = 1 << 1,
     /**
      * By default, when the memory cache miss, we query the disk cache asynchronously. This mask can force to query disk cache (when memory cache miss) synchronously.
      @note These 3 query options can be combined together. For the full list about these masks combination, see wiki page.
      */
-    SDImageCacheQueryDiskDataSync = 1 << 2,
+    BU_SDImageCacheQueryDiskDataSync = 1 << 2,
     /**
      * By default, images are decoded respecting their original size. On iOS, this flag will scale down the
      * images to a size compatible with the constrained memory of devices.
      */
-    SDImageCacheScaleDownLargeImages = 1 << 3,
+    BU_SDImageCacheScaleDownLargeImages = 1 << 3,
     /**
      * By default, we will decode the image in the background during cache query and download from the network. This can help to improve performance because when rendering image on the screen, it need to be firstly decoded. But this happen on the main queue by Core Animation.
      * However, this process may increase the memory usage as well. If you are experiencing a issue due to excessive memory consumption, This flag can prevent decode the image.
      */
-    SDImageCacheAvoidDecodeImage = 1 << 4,
+    BU_SDImageCacheAvoidDecodeImage = 1 << 4,
     /**
      * By default, we decode the animated image. This flag can force decode the first frame only and produece the static image.
      */
-    SDImageCacheDecodeFirstFrameOnly = 1 << 5,
+    BU_SDImageCacheDecodeFirstFrameOnly = 1 << 5,
     /**
-     * By default, for `SDAnimatedImage`, we decode the animated image frame during rendering to reduce memory usage. This flag actually trigger `preloadAllAnimatedImageFrames = YES` after image load from disk cache
+     * By default, for `BU_SDAnimatedImage`, we decode the animated image frame during rendering to reduce memory usage. This flag actually trigger `preloadAllAnimatedImageFrames = YES` after image load from disk cache
      */
-    SDImageCachePreloadAllFrames = 1 << 6,
+    BU_SDImageCachePreloadAllFrames = 1 << 6,
     /**
-     * By default, when you use `BU_SDWebImageContextAnimatedImageClass` context option (like using `SDAnimatedImageView` which designed to use `SDAnimatedImage`), we may still use `UIImage` when the memory cache hit, or image decoder is not available, to behave as a fallback solution.
+     * By default, when you use `BU_SDWebImageContextAnimatedImageClass` context option (like using `SDAnimatedImageView` which designed to use `BU_SDAnimatedImage`), we may still use `UIImage` when the memory cache hit, or image decoder is not available, to behave as a fallback solution.
      * Using this option, can ensure we always produce image with your provided class. If failed, a error with code `SDWebImageErrorBadImageData` will been used.
      * Note this options is not compatible with `SDImageCacheDecodeFirstFrameOnly`, which always produce a UIImage/NSImage.
      */
-    SDImageCacheMatchAnimatedImageClass = 1 << 7,
+    BU_SDImageCacheMatchAnimatedImageClass = 1 << 7,
 };
 
 /**
@@ -74,7 +74,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * By default we use `SDMemoryCache` class, you can also use this to call your own implementation class method.
  * @note To customize this class, check `SDImageCacheConfig.memoryCacheClass` property.
  */
-@property (nonatomic, strong, readonly, nonnull) id<SDMemoryCache> memoryCache;
+@property (nonatomic, strong, readonly, nonnull) id<BU_SDMemoryCache> memoryCache;
 
 /**
  * The disk cache implementation object used for current image cache.
@@ -82,7 +82,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  * @note To customize this class, check `SDImageCacheConfig.diskCacheClass` property.
  * @warning When calling method about read/write in disk cache, be sure to either make your disk cache implementation IO-safe or using the same access queue to avoid issues.
  */
-@property (nonatomic, strong, readonly, nonnull) id<SDDiskCache> diskCache;
+@property (nonatomic, strong, readonly, nonnull) id<BU_SDDiskCache> diskCache;
 
 /**
  *  The disk cache's root path
@@ -241,7 +241,7 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  *
  * @return a NSOperation instance containing the cache op
  */
-- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key done:(nullable SDImageCacheQueryCompletionBlock)doneBlock;
+- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key done:(nullable BU_SDImageCacheQueryCompletionBlock)doneBlock;
 
 /**
  * Asynchronously queries the cache with operation and call the completion when done.
@@ -252,19 +252,19 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
  *
  * @return a NSOperation instance containing the cache op
  */
-- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options done:(nullable SDImageCacheQueryCompletionBlock)doneBlock;
+- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(BU_SDImageCacheOptions)options done:(nullable BU_SDImageCacheQueryCompletionBlock)doneBlock;
 
 /**
  * Asynchronously queries the cache with operation and call the completion when done.
  *
  * @param key       The unique key used to store the wanted image
  * @param options   A mask to specify options to use for this cache query
- * @param context   A context contains different options to perform specify changes or processes, see `SDWebImageContextOption`. This hold the extra objects which `options` enum can not hold.
+ * @param context   A context contains different options to perform specify changes or processes, see `BU_SDWebImageContextOption`. This hold the extra objects which `options` enum can not hold.
  * @param doneBlock The completion block. Will not get called if the operation is cancelled
  *
  * @return a NSOperation instance containing the cache op
  */
-- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context done:(nullable SDImageCacheQueryCompletionBlock)doneBlock;
+- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(BU_SDImageCacheOptions)options context:(nullable SDWebImageContext *)context done:(nullable BU_SDImageCacheQueryCompletionBlock)doneBlock;
 
 /**
  * Synchronously query the memory cache.
@@ -364,6 +364,6 @@ typedef NS_OPTIONS(NSUInteger, SDImageCacheOptions) {
 /**
  * SDImageCache is the built-in image cache implementation for web image manager. It adopts `SDImageCache` protocol to provide the function for web image manager to use for image loading process.
  */
-@interface BU_SDImageCache (SDImageCache) <SDImageCache>
+@interface BU_SDImageCache (BU_SDImageCache) <BU_SDImageCache>
 
 @end

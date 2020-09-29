@@ -70,6 +70,18 @@ typedef NS_ENUM(NSInteger, BUFeedADMode) {
 /// video duration
 @property (nonatomic, assign) NSInteger videoDuration;
 
+/// video url, will be empty string if allowCustomVideoPlayer is NO, contact BD to add to allow list.
+@property (nonatomic, copy, readonly) NSString *videoUrl;
+
+/// be allowed to play video ad via custome player, contact BD to add to allow list.
+@property (nonatomic, assign, readonly) BOOL allowCustomVideoPlayer;
+
+/// video resolution width
+@property (nonatomic, assign, readonly) NSInteger videoResolutionWidth;
+
+/// video resolution height
+@property (nonatomic, assign, readonly) NSInteger videoResolutionHeight;
+
 /// media configuration parameters.
 @property (nonatomic, copy) NSDictionary *mediaExt;
 

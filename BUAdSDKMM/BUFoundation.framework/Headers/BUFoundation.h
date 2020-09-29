@@ -71,6 +71,8 @@
 #import <BUFoundation/UIImageView+BUWebCache.h>
 #import <BUFoundation/BU_SDImageCache.h>
 
+#import <BUFoundation/BUZipArchive.h>
+
 // ByteFinder
 #import <BUFoundation/EBAppLog.h>
 #import <BUFoundation/EBAppLogConfig.h>
