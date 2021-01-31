@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BUFoundationAddress : NSObject
 
-+ (int64_t)begainAddress;
++ (int64_t)bu_begainAddress;
 
-+ (int64_t)endAddress;
++ (int64_t)bu_endAddress;
 
 @end
 

@@ -8,12 +8,13 @@
 #import <UIKit/UIKit.h>
 #import "BUMaterialMeta.h"
 #import "BUSplashZoomOutView.h"
+#import "BUMopubAdMarkUpDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol BUSplashAdDelegate;
 
-@interface BUSplashAdView : UIView
+@interface BUSplashAdView : UIView <BUMopubAdMarkUpDelegate>
 /**
 The unique identifier of splash ad.
  */

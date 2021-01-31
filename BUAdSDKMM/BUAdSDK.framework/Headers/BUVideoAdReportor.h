@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param error error
 - (void)didPlayFailedWithError:(NSError *)error;
 
+/// report sth. wrong with play start
+/// @param error error
+- (void)didPlayStartFailedWithError:(NSError *)error;
 @end
 
 NS_ASSUME_NONNULL_END

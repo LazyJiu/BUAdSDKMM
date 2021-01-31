@@ -18,6 +18,10 @@
 // image height
 @property (nonatomic, assign) float height;
 
+// stream ad image druation
+
+@property (nonatomic, assign) float duration;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
 
 - (NSDictionary *)dictionaryValue;

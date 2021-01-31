@@ -10,12 +10,24 @@
 #import "BUAdSDKDefines.h"
 #import "BUMopubAdMarkUpDelegate.h"
 
+///CN china, NO_CN is not china
+typedef NS_ENUM(NSUInteger, BUAdSDKTerritory) {
+    BUAdSDKTerritory_CN = 1,
+    BUAdSDKTerritory_NO_CN,
+};
+
+@class BUAdSlot;
+
 typedef void (^BUConfirmGDPR)(BOOL isAgreed);
 
 @interface BUAdSDKManager : NSObject
 
 @property (nonatomic, copy, readonly, class) NSString *SDKVersion;
-
+/**
+This property should be set when integrating non-China areas at the same time, otherwise it does not need to be set.you‘d better set Territory first,  if you need to set them
+@param territory : Regional value
+*/
++ (void)setTerritory:(BUAdSDKTerritory)territory;
 /**
  Register the App key that’s already been applied before requesting an ad from TikTok Audience Network.
  @param appID : the unique identifier of the App
@@ -62,6 +74,9 @@ typedef void (^BUConfirmGDPR)(BOOL isAgreed);
 /// Open GDPR Privacy for the user to choose before setAppID.
 + (void)openGDPRPrivacyFromRootViewController:(UIViewController *)rootViewController confirm:(BUConfirmGDPR)confirm;
 
+/// Custom set idfa value
++ (void)setCustomIDFA:(NSString *)idfa;
+
 /// get appID
 + (NSString *)appID;
 
@@ -79,4 +94,8 @@ typedef void (^BUConfirmGDPR)(BOOL isAgreed);
 
 @interface BUAdSDKManager (MopubAdaptor) <BUMopubAdMarkUpDelegate>
 
+@end
+
+@interface BUAdSDKManager (BUAdNR)
++ (NSDictionary *)bunr_dictionaryWithSlot:(BUAdSlot *)slot isDynamicRender:(BOOL)isDynamicRender;
 @end

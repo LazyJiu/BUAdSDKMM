@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BUMaterialMeta.h"
 #import "BUMopubAdMarkUpDelegate.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class BUSize;
@@ -80,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  Initializes interstitial ad.
  @param slotID : The unique identifier of interstitial ad.
  @param adsize : custom size of ad view.
- @return BUInterstitialAd
+ @return BUNativeExpressInterstitialAd
  */
 - (instancetype)initWithSlotID:(NSString *)slotID adSize:(CGSize)adsize;
 

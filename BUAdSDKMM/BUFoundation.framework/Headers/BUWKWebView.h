@@ -16,4 +16,6 @@
 
 /// 白屏检测百分比
 - (void)bu_detectBlankPercentCompleteBlock:(void(^)(CGFloat bgColorPercent, NSError *error))block;
+/// jsbridge 白屏检测百分比
+- (void)bu_detectBlankPercentWithImageStr:(NSString *)imageStr completeBlock:(void(^)(CGFloat bgColorPercent, NSError *))block;
 @end

@@ -12,8 +12,8 @@
 #import "BURexxarEngine.h"
 #import "BUWebViewDefine.h"
 
-extern NSString *const kBUBytedanceScheme;
-extern NSString *const kBUBytedanceDomReadyHost;
+extern NSString *const kBUPangleScheme;
+extern NSString *const kBUPangleDomReadyHost;
 
 @interface BUWebViewApplication : NSObject
 

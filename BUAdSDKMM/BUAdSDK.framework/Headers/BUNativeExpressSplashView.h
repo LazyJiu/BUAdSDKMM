@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BUMaterialMeta.h"
+#import "BUMopubAdMarkUpDelegate.h"
 
 @class BUNativeExpressSplashView;
 
@@ -73,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@interface BUNativeExpressSplashView : UIView
+@interface BUNativeExpressSplashView : UIView <BUMopubAdMarkUpDelegate>
 /**
  The delegate for receiving state change messages.
  */

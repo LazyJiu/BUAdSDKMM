@@ -10,6 +10,8 @@
 
 FOUNDATION_EXPORT NSString * const BUSDKVersion;
 
+/// 标记是否是开发状态，正式上线发版时置 0
+#define DevEnv 0
 
 /** String **/
 #define BUEmptyString                                 (@"");
@@ -96,7 +98,8 @@ FOUNDATION_EXPORT NSString * const BUSDKVersion;
 #define BUMAXScreenSide                   MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
 #endif
 
-#define BUiPhoneX ((BUMAXScreenSide == 812.0) || (BUMAXScreenSide == 896))
+#define BUIsNotchScreen bu_is_notch_screen()
+#define BUiPhoneX BUIsNotchScreen
 #define kBUDefaultNavigationBarHeight  (BUiPhoneX?88:64)      // 导航条高度
 #define kBUSafeTopMargin (BUiPhoneX?24:0)
 #define kBUDefaultStautsBarHeight  (BUiPhoneX?44:20)      // 状态栏高度
@@ -130,16 +133,37 @@ FOUNDATION_EXPORT void bu_safe_dispatch_async_main_queue(void (^block)(void));
 
 FOUNDATION_EXPORT id BU_JSONObjectByRemovingKeysWithNullValues(id JSONObject);
 
+FOUNDATION_EXPORT BOOL bu_is_notch_screen(void);
 
 /** LOG **/
-#define BU_Log_Foundation(frmt, ...)   BU_Log_Base(BUFoundationLog, frmt, ##__VA_ARGS__)
-
-#define BU_Log_Base(BULogTypeString, frmt, ...)   BU_LOG_MAYBE(BULogTypeString, BU_LOG_ENABLED, frmt, ##__VA_ARGS__)
+#define BU_Log_Foundation(frmt, ...) BU_LOG_MAYBE(BUFoundationLog, BU_LOG_ENABLED, frmt, ##__VA_ARGS__)
 
 #define BU_LOG_MAYBE(BULogTypeString, flg, frmt, ...)                       \
 do {                                                      \
-if(flg) NSLog(@"【BytedanceUnion V%@】-【%@】%@", BUSDKVersion, BULogTypeString, [NSString stringWithFormat:frmt,##__VA_ARGS__]);                       \
+if(flg) NSLog(@"【PangleUnion V%@】-【%@】%@", BUSDKVersion, BULogTypeString, [NSString stringWithFormat:frmt,##__VA_ARGS__]);                       \
 } while(0)
+
+#if DevEnv
+
+#define BU_LogD_Verbose @"🟡".UTF8String
+#define BU_LogD_Info    @"🟢".UTF8String
+#define BU_LogD_Error   @"🔴".UTF8String
+#define BU_LogD(BULogType, nature, format, ...) printf("\n【%s】%s [%s %d] %s\n\n", BULogType.UTF8String, nature, [NSString stringWithUTF8String:__FILE__].lastPathComponent.UTF8String ,__LINE__, [NSString stringWithFormat:format, ##__VA_ARGS__].UTF8String)
+
+#else
+
+#define BU_LogD_Verbose
+#define BU_LogD_Info
+#define BU_LogD_Error
+#define BU_LogD(BULogTypeString, nature, ...)
+
+#endif
+
 
 FOUNDATION_EXPORT NSString * const BUFoundationLog;
 FOUNDATION_EXPORT BOOL BU_LOG_ENABLED;
+
+// 对枚举值进行日志字符串转换， 例如对于一个枚举值   1表示激励视频广告的意思， 将返回：   激励视频广告(value:1)
+FOUNDATION_EXPORT NSString *NSStringLogFromBUAdEnumItem(NSInteger enumItem, NSDictionary *dic, NSString *defaultValue);
+// 对枚举值进行字符串转换   例如对于一个枚举值   1表示rewarded_ad的字符串， 将返回：  rewarded_ad
+FOUNDATION_EXPORT NSString *NSStringFromBUAdEnumItem(NSInteger enumItem, NSDictionary *dic, NSString *defaultValue);

@@ -10,12 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class BUAdSlot;
+
 @protocol BUMopubAdMarkUpDelegate <NSObject>
 @optional
 
 /** Mopub AdMarkUp
   */
 - (void)setMopubAdMarkUp:(NSString *)adm;
+
+/// Bidding Token. Now for MSDK in domestic, used for every ad type.
+- (NSString *)biddingToken;
 
 /** Mopub Adaptor get AD type from rit
   *   @return  @{@"adSlotType": @(1), @"renderType": @(1)}
@@ -34,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Mopub Bidding Token
 + (NSString *)mopubBiddingToken;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -28,6 +28,7 @@
 #import <BUAdSDK/BUNativeAdsManager.h>
 
 /// native express ads
+#import <BUAdSDK/BUNativeExpressAdViewDelegate.h>
 #import <BUAdSDK/BUNativeExpressAdManager.h>
 #import <BUAdSDK/BUNativeExpressAdView.h>
 #import <BUAdSDK/BUNativeExpressBannerView.h>
@@ -36,14 +37,8 @@
 #import <BUAdSDK/BUNativeExpressFullscreenVideoAd.h>
 #import <BUAdSDK/BUNativeExpressSplashView.h>
 
-/// banner ads
-#import <BUAdSDK/BUBannerAdView.h>
-
 /// splash ads
 #import <BUAdSDK/BUSplashAdView.h>
-
-/// interstitial ads
-#import <BUAdSDK/BUInterstitialAd.h>
 
 /// rewarded video ads
 #import <BUAdSDK/BURewardedVideoModel.h>
