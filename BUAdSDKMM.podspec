@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.resources = 'BUAdSDKMM/BUAdSDK.bundle'
-  s.vendored_frameworks = ['BUAdSDKMM/BUAdSDK.framework', 'BUAdSDKMM/BUFoundation.framework']
+  s.vendored_frameworks = ['BUAdSDKMM/BUAdSDK.framework', 'BUAdSDKMM/BUFoundation.framework', 'BUAdSDKMM/BUCNAuxiliary.framework']
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
