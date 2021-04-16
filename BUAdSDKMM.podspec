@@ -38,6 +38,6 @@ TODO: Add long description of the pod here.
   s.libraries = "z", "c++", "xml2","resolv", 'sqlite3', 'bz2'
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','ImageIO'
+  s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','ImageIO','AudioToolbox'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
