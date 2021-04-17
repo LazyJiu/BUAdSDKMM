@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
-  s.version          = '3.6.0.1.0'
-  s.summary          = '3.6.0.1.0'
+  s.version          = '3.6.0.1.1'
+  s.summary          = '3.6.0.1.1'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -35,7 +35,7 @@ TODO: Add long description of the pod here.
   # s.resource_bundles = {
   #   'BUAdSDKMM' => ['BUAdSDKMM/Assets/*.png']
   # }
-  s.libraries = "z", "c++", "xml2","resolv", 'sqlite3', 'bz2'
+  s.libraries = "z", "c++","c++abi", "xml2","resolv", 'sqlite3', 'bz2'
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = s.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','ImageIO','AudioToolbox','JavaScriptCore'
