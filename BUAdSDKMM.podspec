@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BUAdSDKMM'
-  s.version          = '3.8.0.0'
-  s.summary          = '3.8.0.0'
+  s.version          = '4.1.0.0'
+  s.summary          = '4.1.0.0'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LazyJiu' => '0x170818@gmail.com' }
-  s.source           = { :http => 'https://yiwanpic.oss-cn-shenzhen.aliyuncs.com/csj/3.8.0/BUAdSDKMM.zip'}
+  s.source           = { :http => 'https://yiwanpic.oss-cn-shenzhen.aliyuncs.com/csj/4.1.0.0/BUAdSDKMM.zip'}
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
